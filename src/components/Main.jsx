@@ -37,7 +37,7 @@ export default function Main() {
       } relative`}
     >
       <div className="flex justify-center pt-5">
-        <div className="w-1/2">
+        <div className="lg:w-1/2 w-[90%]">
           <Search searchFunc={searchFunc} />
           <Category showNote={showNote} activeCategory={activeCategory} />
         </div>

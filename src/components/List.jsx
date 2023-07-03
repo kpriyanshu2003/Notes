@@ -36,7 +36,7 @@ export default function List(props) {
 
     if (filteredData.length > 0) {
       items = (
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-1 lg:grid-cols-4">
           {filteredData.map((datas) => (
             <div
               className="rounded-md m-4 shadow-md w-[300px] h-[260px] border relative"

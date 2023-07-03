@@ -1,7 +1,7 @@
 export default function Category(props) {
   return (
     <div className="flex items-center justify-between w-full mt-6">
-      <div className="flex items-center">
+      <div className="lg:flex lg:items-center grid grid-cols-2 grid-rows-2 gap-2">
         <div
           className="py-2 px-6 mr-4 bg-[#CCCCCC] rounded-sm cursor-pointer flex items-center"
           onClick={() => props.activeCategory("none")}
@@ -104,14 +104,14 @@ m403 -844 l49 -235 -21 -28 c-16 -22 -28 -27 -63 -27 -34 0 -46 5 -61 25 -11
           <span className="ml-1">Personal</span>
         </div>
       </div>
-      <div className="py-2 px-5 bg-[#ff9b9b] rounded-sm shadow-md cursor-pointer flex items-center">
+      <div className="py-2 px-5 bg-[#ff9b9b] rounded-sm shadow-md cursor-pointer lg:flex lg:items-center white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-5 h-5"
+          className="h-5 w-full"
         >
           <path
             strokeLinecap="round"
@@ -119,7 +119,10 @@ m403 -844 l49 -235 -21 -28 c-16 -22 -28 -27 -63 -27 -34 0 -46 5 -61 25 -11
             d="M12 4.5v15m7.5-7.5h-15"
           />
         </svg>
-        <span className="ml-1" onClick={() => props.showNote("")}>
+        <span
+          className="ml-1 whitespace-nowrap"
+          onClick={() => props.showNote("")}
+        >
           Add Note
         </span>
       </div>

@@ -79,27 +79,18 @@ export default function Note(props) {
 
   return (
     <div className="h-full w-full grid place-items-center font-alegreya">
-      <div className="bg-white shadow-lg border w-4/6 h-5/6 rounded-md p-2 px-4 relative">
+      <div className="bg-white shadow-lg lg:w-4/6 w-full h-full lg:h-5/6 lg:rounded-md p-2 px-4 relative">
         <div className="flex items-center justify-between">
-          <div className="text-5xl mt-2 ml-2 mb-4 font-bold font-alegreya-sc">
+          <div className=" text-4xl lg:text-5xl mt-2 ml-2 mb-2 font-bold font-alegreya-sc">
             {props.current === "" ? "Add" : "Edit"} Note
-          </div>
-          <div>
-            <span className="mr-2">Last Modified :</span>
-            <span className="mr-2">
-              {arrangeData(noteData.lastmodified).date}
-            </span>
-            <span>{arrangeData(noteData.lastmodified).time}</span>
           </div>
         </div>
         <div className="flex items-center justify-between">
           <input
             type="text"
-            name=""
-            id=""
             value={noteData.title}
             placeholder="Enter Title"
-            className="text-3xl rounded p-2 outline-none w-full"
+            className="text-2xl lg:text-3xl rounded p-2 outline-none w-full"
             onChange={(e) =>
               setNoteData({ ...noteData, title: e.target.value })
             }
@@ -116,11 +107,9 @@ export default function Note(props) {
           </div>
         </div>
         <hr />
-        <div className="h-4/6">
+        <div className="h-[75%] lg:h-4/6">
           <textarea
-            name=""
-            id=""
-            className="resize-none rounded p-2 w-full text-lg outline-none h-full overflow-auto"
+            className="resize-none rounded p-2 w-full lg:text-lg outline-none h-full overflow-auto"
             placeholder="Enter Description"
             value={noteData.description}
             onChange={(e) =>
@@ -128,6 +117,15 @@ export default function Note(props) {
             }
             readOnly={locked}
           ></textarea>
+        </div>
+        <div className="w-full h-[20px] mt-1 flex justify-end">
+          <div className="">
+            <span className="mr-2">Last Modified :</span>
+            <span className="mr-2">
+              {arrangeData(noteData.lastmodified).date}
+            </span>
+            <span>{arrangeData(noteData.lastmodified).time}</span>
+          </div>
         </div>
         <div
           className="absolute bottom-[20px] left-[20px] flex items-center cursor-pointer"

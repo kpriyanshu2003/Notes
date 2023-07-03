@@ -104,13 +104,12 @@ export default function Note(props) {
               setNoteData({ ...noteData, title: e.target.value })
             }
             readOnly={locked}
+            maxLength={50}
           />
           <div className="w-72 outline-none border-none ml-3">
             <Select
               options={options}
-              defaultValue={options.find(
-                (option) => option.value === noteData.type
-              )}
+              value={options.find((option) => option.value === noteData.type)}
               onChange={(e) => setNoteData({ ...noteData, type: e.value })}
               isDisabled={locked}
             />
@@ -121,7 +120,7 @@ export default function Note(props) {
           <textarea
             name=""
             id=""
-            className="resize-none rounded p-2 w-full text-lg outline-none h-full"
+            className="resize-none rounded p-2 w-full text-lg outline-none h-full overflow-auto"
             placeholder="Enter Description"
             value={noteData.description}
             onChange={(e) =>

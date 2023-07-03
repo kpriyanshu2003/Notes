@@ -1,4 +1,11 @@
-export default function Search() {
+import { useState } from "react";
+
+export default function Search(props) {
+  const [value, setValue] = useState("");
+  const updateVal = (x) => {
+    props.searchFunc(x);
+    setValue(x);
+  };
   return (
     <div className="w-full rounded-lg overflow-hidden border flex items-center p-2 shadow-md">
       <svg
@@ -19,6 +26,8 @@ export default function Search() {
         type="text"
         placeholder="Search notes"
         className="w-full ml-2 text-base py-1 outline-none border-none bg-transparent"
+        value={value}
+        onChange={(e) => updateVal(e.target.value)}
       />
     </div>
   );

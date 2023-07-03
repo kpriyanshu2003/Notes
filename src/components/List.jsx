@@ -15,14 +15,23 @@ export default function List(props) {
     }
   };
 
-  let items;
-  let filteredData = [];
+  let items,
+    filteredData = [];
 
   if (data && data !== null && data.length > 0) {
     if (props.category === "none") {
       filteredData = data;
     } else {
       filteredData = data.filter((datas) => datas.type === props.category);
+    }
+
+    if (props.searchValue && props.searchValue.trim().length > 0) {
+      const searchTerm = props.searchValue.trim().toLowerCase();
+      filteredData = filteredData.filter(
+        (datas) =>
+          datas.title.toLowerCase().includes(searchTerm) ||
+          datas.description.toLowerCase().includes(searchTerm)
+      );
     }
 
     if (filteredData.length > 0) {
